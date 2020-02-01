@@ -20,3 +20,14 @@ C:\Users\covs1\source\repos\Моя домашка C#\Homework1\bin\Debug\netcore
 C:\Users\covs1\source\repos\Моя домашка C#\Homework1\bin\Debug\netcoreapp3.0\Homework.runtimeconfig.dev.json
 C:\Users\covs1\source\repos\Моя домашка C#\Homework1\bin\Debug\netcoreapp3.0\Homework.dll
 C:\Users\covs1\source\repos\Моя домашка C#\Homework1\bin\Debug\netcoreapp3.0\Homework.pdb
+C:\Users\covs1\source\repos\Dev_Education\Homework1\bin\Debug\netcoreapp3.0\Homework.exe
+C:\Users\covs1\source\repos\Dev_Education\Homework1\bin\Debug\netcoreapp3.0\Homework.deps.json
+C:\Users\covs1\source\repos\Dev_Education\Homework1\bin\Debug\netcoreapp3.0\Homework.runtimeconfig.json
+C:\Users\covs1\source\repos\Dev_Education\Homework1\bin\Debug\netcoreapp3.0\Homework.runtimeconfig.dev.json
+C:\Users\covs1\source\repos\Dev_Education\Homework1\bin\Debug\netcoreapp3.0\Homework.dll
+C:\Users\covs1\source\repos\Dev_Education\Homework1\bin\Debug\netcoreapp3.0\Homework.pdb
+C:\Users\covs1\source\repos\Dev_Education\Homework1\obj\Debug\netcoreapp3.0\Homework.csprojAssemblyReference.cache
+C:\Users\covs1\source\repos\Dev_Education\Homework1\obj\Debug\netcoreapp3.0\Homework.AssemblyInfoInputs.cache
+C:\Users\covs1\source\repos\Dev_Education\Homework1\obj\Debug\netcoreapp3.0\Homework.AssemblyInfo.cs
+C:\Users\covs1\source\repos\Dev_Education\Homework1\obj\Debug\netcoreapp3.0\Homework.dll
+C:\Users\covs1\source\repos\Dev_Education\Homework1\obj\Debug\netcoreapp3.0\Homework.pdb

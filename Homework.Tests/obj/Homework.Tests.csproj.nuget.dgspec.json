@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\covs1\\source\\repos\\Моя домашка C#\\Homework.Tests\\Homework.Tests.csproj": {}
+    "C:\\Users\\covs1\\source\\repos\\Dev_Education\\Homework.Tests\\Homework.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\covs1\\source\\repos\\Моя домашка C#\\Homework.Tests\\Homework.Tests.csproj": {
+    "C:\\Users\\covs1\\source\\repos\\Dev_Education\\Homework.Tests\\Homework.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\covs1\\source\\repos\\Моя домашка C#\\Homework.Tests\\Homework.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\covs1\\source\\repos\\Dev_Education\\Homework.Tests\\Homework.Tests.csproj",
         "projectName": "Homework.Tests",
-        "projectPath": "C:\\Users\\covs1\\source\\repos\\Моя домашка C#\\Homework.Tests\\Homework.Tests.csproj",
+        "projectPath": "C:\\Users\\covs1\\source\\repos\\Dev_Education\\Homework.Tests\\Homework.Tests.csproj",
         "packagesPath": "C:\\Users\\covs1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\covs1\\source\\repos\\Моя домашка C#\\Homework.Tests\\obj\\",
+        "outputPath": "C:\\Users\\covs1\\source\\repos\\Dev_Education\\Homework.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\covs1\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\covs1\\source\\repos\\Моя домашка C#\\Homework1\\Homework.csproj": {
-                "projectPath": "C:\\Users\\covs1\\source\\repos\\Моя домашка C#\\Homework1\\Homework.csproj"
+              "C:\\Users\\covs1\\source\\repos\\Dev_Education\\Homework1\\Homework.csproj": {
+                "projectPath": "C:\\Users\\covs1\\source\\repos\\Dev_Education\\Homework1\\Homework.csproj"
               }
             }
           }
@@ -84,18 +84,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\covs1\\source\\repos\\Моя домашка C#\\Homework1\\Homework.csproj": {
+    "C:\\Users\\covs1\\source\\repos\\Dev_Education\\Homework1\\Homework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\covs1\\source\\repos\\Моя домашка C#\\Homework1\\Homework.csproj",
+        "projectUniqueName": "C:\\Users\\covs1\\source\\repos\\Dev_Education\\Homework1\\Homework.csproj",
         "projectName": "Homework",
-        "projectPath": "C:\\Users\\covs1\\source\\repos\\Моя домашка C#\\Homework1\\Homework.csproj",
+        "projectPath": "C:\\Users\\covs1\\source\\repos\\Dev_Education\\Homework1\\Homework.csproj",
         "packagesPath": "C:\\Users\\covs1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\covs1\\source\\repos\\Моя домашка C#\\Homework1\\obj\\",
+        "outputPath": "C:\\Users\\covs1\\source\\repos\\Dev_Education\\Homework1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\covs1\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -138,7 +138,7 @@
             },
             {
               "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.0.1, 3.0.1]"
+              "version": "[3.0.2, 3.0.2]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
@@ -154,7 +154,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

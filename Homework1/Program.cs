@@ -6,27 +6,6 @@ namespace Homework
     {
         static void Main()
         {
-            ArrayList al = new ArrayList();
-            al.Add(12);
-            int[] arr = al.GetValues();
-            PrintIntArray(arr);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             //Task1(); //задача с расчётом кредита
             //Task2(); //катеты
             //Task3(); //Вывести уравнение прямой по координатам двух точек
