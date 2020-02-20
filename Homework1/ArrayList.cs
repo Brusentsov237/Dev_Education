@@ -7,186 +7,226 @@ namespace Homework
     public class ArrayList
     {
 
-       private int[] arr = new int[0];
-
-        int realLength = 0;
-
-        public int[] GetValues() 
+        private int[] arr;
+        private int realLength;
+        public int[] Arr
         {
-            int[] result = new int[realLength];
-            for(int i =0; i<realLength; i++)
+            get
             {
-                result[i] = arr[i]; 
-            }
-            return result;
-        }
-        private void EnsureLength(int len) // метод проверяет, что в массиве етсь не менее len ячеек и при необходимости
-                                           // расширяет массив
-        {
-            if (arr.Length < len)
-            {
-                // По классике наращиваем массив в два раза
-                var newItems = new int[arr.Length * 2];
-
-                // Здесь можно и циклом скопировать
-                Array.Copy(arr, newItems, arr.Length);
-                for(int i = 0; i < realLength; i++)
+                int[] newArr = new int[realLength];
+                for(int i = 0; i< realLength; i++)
                 {
-
+                    newArr[i] = arr[i];
                 }
-                // Заменяем массив
-                arr = newItems;
+                return newArr;
+            }
+            set
+            {
+                arr = value;
             }
         }
-            public void Add(int val) //добавляет элемент в конец массива
+        public ArrayList()
         {
-            int[] res = new int[arr.Length + 1];
+            arr = new int[10];
+            realLength = 0;
+        }
+        public ArrayList(int[] arr)
+        {
+            this.arr = arr;
+            realLength = arr.Length;
+        }
+        
+        private void Enlarge() // расширяет массив
+        {
 
-            for (int i = 0; i < res.Length; i++)
+            int[] temp = new int[(arr.Length * 3) / 2 + 1];
+
+            // Array.Copy(arr, temp, arr.Length);
+            for (int i = 0; i < arr.Length; i++)
             {
-                if (i < arr.Length)
-                {
-                    res[i] = arr[i];
-                }
-                else if (i == res.Length)
-                {
-                    res[i] = val;
-                }
+                temp[i] = arr[i];
             }
+
+            // Заменяем массив
+            arr = temp;
+        }
+
+        private void Reduce() // сокращает массив
+        {
+
+            int[] temp = new int[(arr.Length)*3/2+5];
+
+            // Array.Copy(arr, temp, arr.Length);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                temp[i] = arr[i];
+            }
+
+            // Заменяем массив
+            arr = temp;
+        }
+
+        public void AddEnd(int val) //добавляет элемент в конец массива
+        {
+            if (realLength == arr.Length)
+                Enlarge();
+
+            arr[realLength] = val;
             realLength++;
-            if (realLength > arr.Length)
-            {
-                arr = new int[arr.Length + 3];
-                for (int i = 0; i < res.Length; i++)
-                {
-                    arr[i] = res[i];
-                }
-            }
-            else
-            {
-                for (int i = 0; i < realLength; i++)
-                {
-                    arr[i] = res[i];
-                }
-            }
         }
-        public void Add(int idx, int val) //добавляет элемент под индексом и сдвигает массив
-        {
-            int[] res = new int[arr.Length + 1];
-            for (int i = 0; i < res.Length; i++)
-            {
 
-                if (i < idx)
-                {
-                    res[i] = arr[i];
-                }
-                else if (i == idx)
-                {
-                    res[i] = val;
-                }
-                else
-                {
-                    res[i] = arr[i - 1];
-                }
+        public void AddByIdx(int idx, int val) //добавляет элемент под индексом и сдвигает массив
+        {
+            if (realLength >= arr.Length)
+                Enlarge();
+
+            for (int i = realLength - 1; i >= idx; i--)
+            {
+                arr[i + 1] = arr[i];
             }
+
+            arr[idx] = val;
+
             realLength++;
-            if (realLength > arr.Length)
+        }
+
+        public void AddAllEnd(int[] vals)//добаваляет элементы из введённого массива в текущий 
+        {
+            var temp = new int[arr.Length + vals.Length];
+
+            // Копируем старый массив
+            int j = 0;
+            for (int i = 0; i < arr.Length; i++)
             {
-                arr = new int[arr.Length + 3];
-                for (int i = 0; i < res.Length; i++)
-                {
-                    arr[i] = res[i];
-                }
+                temp[j] = arr[i];
+                j++;
             }
-            else
+
+            // Копируем добавочный массив в конец
+            for (int i = 0; i < vals.Length; i++)
             {
-                for (int i = 0; i < res.Length; i++)
-                {
-                    arr[i] = res[i];
-                }
+                temp[j] = vals[i];
+                j++;
+            }
+
+            // Заменяем массив на новый.
+            arr = temp;
+
+            realLength += vals.Length;
+        }
+
+        public void AddAllByIdx1(int idx, int[] vals)
+        {
+            int indexModifier = 0;
+            for (int i = 0; i < vals.Length; i++)
+            {
+                AddByIdx(idx + indexModifier, vals[i]);
+                indexModifier++;
             }
         }
-        public void AddAll(int[] vals)//добаваляет элементы из введённого массива в текущий 
+
+        public void AddAllByIdx(int idx, int[] vals)//добавляет элементы под индексом и сдвигает массив
         {
-            int[] res = new int[arr.Length + vals.Length];
-            for (int i = 0; i < arr.Length + vals.Length; i++)
+            // Создаем новый массив
+            var temp = new int[arr.Length + vals.Length];
+
+            // Копируем в новый массив два исходных. Используем два индекса i и j.
+            int j = 0;
+            for (int i = 0; i < temp.Length; )
             {
-                if (i < arr.Length)
+                if (i == idx)
                 {
-                    res[i] = arr[i];
+                    // Если дошли до места куда вставляем vals, то копируем vals
+                    for (var k = 0; k < vals.Length; k++)
+                    {
+                        // Копируем элемент из vals
+                        temp[i] = vals[k];
+                        // Сдвигаем i на один
+                        i++;
+                    }
                 }
                 else
                 {
-                    res[i] = vals[i];
+                    // Иначе копируем элемент из старого массива и сдвигаем i и j на
+                    // один.
+                    temp[i] = arr[j];
+                    j++;
+                    i++;
                 }
             }
 
+            // Заменяем массив на новый.
+            arr = temp;
+            realLength += vals.Length;
         }
-        public void AddAll(int idx, int[] vals)//добавляет элементы под индексом и сдвигает массив
-        {
-            int[] res = new int[arr.Length + vals.Length];
-            int k = 0;
-            for (int i = 0; i < res.Length; i++)
-            {
-                if (i < idx)
-                {
-                    res[i] = arr[i];
-                }
-                else if (idx <= i && i <= idx + vals.Length)
-                {
-                    res[i] = vals[k];
-                    k++;
-                }
-                else
-                {
-                    res[i] = arr[i - vals.Length];
-                }
-            }
 
-            for (int i = 0; i < res.Length; i++)
-            {
-                arr[i] = res[i];
-            }
-        }
         public void RemoveIdx(int idx) //удаляет элемент массива по индексу
         {
-            int[] res = new int[arr.Length - 1];
-            for (int i = 0; i < res.Length; i++)
+            int[] temp = new int[arr.Length - 1];
+
+            int j = 0;
+            for (int i = 0; i <= temp.Length; i++)
             {
-                if (i < idx)
+                if (i != idx)
                 {
-                    res[i] = arr[i];
+                    temp[j] = arr[i];
+                    j++;
                 }
-                else if (i > idx)
+
+
+            }
+
+            // Заменяем массив на новый.
+            arr = temp;
+
+            realLength--;
+
+            if (realLength < 2 * (arr.Length - 1) / 3)
+                Reduce();
+
+        }
+
+        public void RemoveVal(int val) //удаляет все элементы с введённым значением
+        {
+            int[] temp = new int[arr.Length];
+
+            int j = 0, counter = 0;
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if (arr[i] == val)
                 {
-                    res[i] = arr[i + 1];
+                    counter++;
+                }
+                else
+                {
+                    temp[j] = arr[i];
+                    j++;
                 }
             }
 
-            for (int i = 0; i < res.Length; i++)
-            {
-                arr[i] = res[i];
-            }
-        }
-        public void RemoveVal(int val) //удаляет первый попавшийся элемент с введённым значением
-        {
+            // Заменяем массив на новый.
+            arr = temp;
 
-            
+            realLength -= counter;
+
+            if (realLength < 2 * (arr.Length - 1) / 3)
+                Reduce();
+
         }
-        public void RemoveAll(int val) //удаляет все элементы с введённым значением
-        {
-            
-        }
+
         public void Set(int idx, int val) //заменяет значение по индексу
         {
             for (int i = 0; i < realLength; i++)
             {
                 if (i == idx)
-                   arr[i] = val;
+                    arr[i] = val;
             }
         }
+
         public int Get(int idx) //возвращает значение элемента по индексу
         {
+            if (idx > realLength - 1)
+                throw new ArgumentException("нет такого индекса");
             int val = 0;
             for (int i = 0; i < realLength; i++)
             {
@@ -195,37 +235,27 @@ namespace Homework
             }
             return val;
         }
+
         public int Size() // фактический размер массива
         {
-            int count = 0;
-            for (int i = 0; i < realLength; i++)
-            {
-                count++;
-            }
-
-            return count;
+            return realLength;
         }
+
         public bool Contains(int val) //проверка на наличие элемента в массиве
+        {
+            return IndexOf(val) > -1;
+        }
+
+        public int IndexOf(int val) //возвращает индекс первого подходящего элемента по заданному значению
         {
             for (int i = 0; i < realLength; i++)
             {
                 if (arr[i] == val)
-                {
-                    return true;
-                }
+                    return i;
             }
-            return false;
+            return -1;
         }
-        public int IndexOf(int val) //возвращает индекс первого подходящего элемента по заданному значению
-        {
-            int idx = 0;
-            for (int i = 0; i < realLength; i++)
-            {
-                if(arr[i] == val)
-                idx =  i;
-            }
-            return idx;
-        }
+
         public int[] Search(int val)//возвращает массив индексов по заданному значению
         {
             int k = 0;
@@ -241,11 +271,10 @@ namespace Homework
             int[] res = new int[k];
             for (int i = 0; i < k; i++)
             {
-                 res[i] = tempArr[i];
+                res[i] = tempArr[i];
             }
             return res;
         }
 
     }
-    
 }

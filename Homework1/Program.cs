@@ -6,6 +6,24 @@ namespace Homework
     {
         static void Main()
         {
+            ArrayList arrayList = new ArrayList();
+            arrayList.AddEnd(1);
+            arrayList.AddEnd(2);
+            arrayList.AddEnd(3);
+            arrayList.AddEnd(3);
+            arrayList.AddEnd(3);
+            arrayList.AddEnd(4);
+            arrayList.AddEnd(5);
+            arrayList.AddEnd(6);
+            arrayList.AddEnd(7);
+            arrayList.AddEnd(8);
+            arrayList.AddEnd(9);
+     
+            PrintIntArray(arrayList.Arr);
+            //arrayList.AddAllByIdx(3, new int[] {2, 3, 4, 5});
+            arrayList.RemoveVal(3);
+            PrintIntArray(arrayList.Arr);
+
             //Task1(); //задача с расчётом кредита
             //Task2(); //катеты
             //Task3(); //Вывести уравнение прямой по координатам двух точек
@@ -889,9 +907,18 @@ namespace Homework
 
             Homework3 hw = new Homework3();
             
-            Console.WriteLine(hw.SearchDividersAndCount(a,b,c));
-                
-            
+            int[] numbers = hw.SearchNumbers(a,b,c);
+
+            for(int i = 0; i < numbers.Length; i++)
+            {
+                int[] dividers = hw.GetDividersOfNumber(numbers[i]);
+                Console.Write($"Запрашиваемое число: {i}. Кол-во делителей:{dividers.Length}. Его делители:\n");
+                for(int j = 0; j <dividers.Length; j++)
+                {
+                    Console.Write($"{j}, ");
+                    Console.WriteLine();
+                }
+            }
         }
         static void Task3_6()
         {

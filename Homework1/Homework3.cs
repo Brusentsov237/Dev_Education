@@ -38,7 +38,7 @@ namespace Homework
             }
             return count;
         }
-       public int[] SearchDividersAndCount(int a, int b, int c)
+       public int[] SearchNumbers(int a, int b, int c)
         {
             int countd = 0;
             
@@ -53,14 +53,10 @@ namespace Homework
                     {
                         count += 1;
                        
+                        if (count >= c) countd++;
                     }
                 }
 
-                if (count >= c)
-                {
-                    countd++;
-                    
-                }
             }
 
             int[] result = new int[countd];
@@ -75,16 +71,35 @@ namespace Homework
                 {
                     if (i % j == 0)
                     {
+                        result[count] = i;
                         count += 1;
                     }
                 }
 
                 if (count >= c)
                 {
-                    result[countd] = i;
                     countd += 1;
                 }
             }
+            return result;
+        }
+        public int[] GetDividersOfNumber(int a)
+        {
+
+            List<int> temp = new List<int>();
+            
+            
+                int count = 0;
+
+            for (int j = 1; j <= a; j++)
+            {
+                if (a % j == 0)
+                {
+                    temp.Add(j);
+                    count += 1;
+                }
+            }
+            int[] result = temp.ToArray();
             return result;
         }
         public int CountNumeralInArray(int[] arr, int numeral)

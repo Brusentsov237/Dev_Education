@@ -5,7 +5,7 @@ namespace Homework.Tests
     [TestFixture]
     class Homework3Tests
     {
-            Homework3 hw3 = new Homework3();
+        Homework3 hw3 = new Homework3();
 
         public int[,] GetArrayByName(string arrayName)
         {
@@ -14,22 +14,22 @@ namespace Homework.Tests
                 case "matrixInput1":
                     return new int[,] { { 1, 2, 3 },
                                         { 4, 5, 6 },
-                                        { 7, 8, 9 } }; 
+                                        { 7, 8, 9 } };
                 case "diagonalExpected1":
                     return new int[,] {{ 3, 2, 1 },
                                        { 4, 5, 6 },
                                        { 9, 8, 7 } };
                 case "matrixInput2":
-                    return new int[,] { { 1, 2 }, 
+                    return new int[,] { { 1, 2 },
                                         { 3, 4 } };
                 case "diagonalExpected2":
-                    return new int[,] { { 2, 1 }, 
+                    return new int[,] { { 2, 1 },
                                         { 4, 3 } };
                 case "matrixInput3":
-                    return new int[,] { { 1, 5 }, 
+                    return new int[,] { { 1, 5 },
                                         { 8, 9 } };
                 case "diagonalExpected3":
-                    return new int[,] { { 5, 1 }, 
+                    return new int[,] { { 5, 1 },
                                         { 9, 8 } };
                 default:
                     return new int[,] { };
@@ -76,7 +76,7 @@ namespace Homework.Tests
                 },
         };
         [TestCaseSource("testDataForGetCountOfGreaterX")]
-        public void CountOfGreaterXTest(int[,] arr, int expected )
+        public void CountOfGreaterXTest(int[,] arr, int expected)
         {
 
             int actual = hw3.GetCountOfGreaterX(arr);
@@ -95,6 +95,22 @@ namespace Homework.Tests
             string actual = hw3.GetRomanNumber(arabicNumber);
             string expected = romanNumber;
             Assert.AreEqual(expected, actual);
-        } 
+        }
+
+        [TestCase(1, 10, 3, new int[]{})]
+        [TestCase(1, 10, 4, new int[]{})]
+        [TestCase(1, 10, 3, new int[]{})]
+        public void SearchNumbersTest(int a, int b, int c, int[] expected)
+        {
+            int[] actual = hw3.SearchNumbers(a, b, c);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCase(8, new int[] {1, 2, 4, 8})]
+        public void GetDividersOfNumberTest(int a, int[] expected)
+        {
+            int[] actual = hw3.GetDividersOfNumber(a);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

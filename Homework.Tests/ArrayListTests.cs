@@ -65,10 +65,13 @@ namespace Homework.Tests
             Assert.AreEqual(expected, actual);
         }
 
-        [TestCase(new int[] { 1, 1, 6, 3, 6, 5, 6 }, 6, 720)]
-        public void RemoveIdxTest(int[] source, int idx, int expected)
+        [TestCase(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 1, new int[] { 1,  3, 4, 5,6,  7 })]
+        [TestCase(new int[] { 2, 1, 6, 3, 6, 5, 6 }, 0, new int[] { 1, 6, 3, 6, 5, 6 })]
+        [TestCase(new int[] { 3, 1, 6, 3, 6, 5, 6 }, 1, new int[] { 3, 6, 3, 6, 5, 6 })]
+        public void RemoveIdxTest(int[] source, int idx, int[] expected)
         {
             ArrayList al = new ArrayList(source);
+
             al.RemoveIdx(idx);
 
             int[] actual = al.Arr;
@@ -76,7 +79,7 @@ namespace Homework.Tests
             Assert.AreEqual(expected, actual);
         }
 
-        [TestCase(new int[] { 1, 1, 6, 3, 6, 5, 6 }, 6, new int[] { 1, 1, 6, 3, 6, 5, 6 })]
+        [TestCase(new int[] { 1, 1, 6, 3, 6, 5, 6 }, 6, new int[] { 1, 1, 3, 5, })]
         public void RemoveValTest(int[] source, int val, int[] expected)
         {
             ArrayList al = new ArrayList(source);
@@ -95,7 +98,7 @@ namespace Homework.Tests
         public void SetTest(int[] source, int idx, int val, int[] expected)
         {
 
-            ArrayList al = new ArrayList();
+            ArrayList al = new ArrayList(source);
 
             al.Set(idx, val);
 
